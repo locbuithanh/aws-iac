@@ -74,14 +74,13 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          sudo apt-get update -y
-          sudo apt-get install apache2 -y
-          sudo systemctl start apache2.service
-          sudo cd /var/www/html
-          sudo chmod -R 777 /var/www/html
-          sudo echo "it works! Udagram, Udacity" > index.html
+          apt-get update -y
+          apt-get install apache2 -y
+          systemctl start apache2.service
+          cd /var/www/html
+          echo "it works! Udagram, Udacity" > index.html
       ImageId: !Ref MyImageId
-      KeyName: IACInstanceKey
+      KeyName: Udacity_Demo
       SecurityGroups:
         - !Ref WebServerSecGroup
       InstanceType: t2.medium
