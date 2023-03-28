@@ -1,4 +1,6 @@
 ### Project Title - Deploy a high-availability web app using CloudFormation
+URL: http://serve-webap-ed2gmynpb85y-696886035.us-east-1.elb.amazonaws.com/
+
 This folder provides the starter code for the "ND9991 - C2- Infrastructure as Code - Deploy a high-availability web app using CloudFormation" project. This folder contains the following files:
 
 WebServerDiagram.png: The diagram of the Web Server as a visual aid to understand the CloudFormation script
