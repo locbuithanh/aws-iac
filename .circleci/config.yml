@@ -16,7 +16,7 @@ jobs:
       - run: echo 'export MY_NAME="LOC"' >> "$BASH_ENV"
       - run:
           name: "Say hello"
-          command: echo 'Hello, ${MY_NAME}!'
+          command: echo ${MY_NAME}
   say-bye:
     docker:
       - image: circleci/node:13.8.0
