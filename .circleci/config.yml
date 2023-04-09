@@ -13,10 +13,10 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
-      - checkout
+      - run: echo 'export MY_NAME="LOC"' >> "$BASH_ENV"
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: "echo Hello, ${MY_NAME}!"
   say-bye:
     docker:
       - image: circleci/node:13.8.0
