@@ -13,17 +13,19 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
-      - run: echo 'export MY_NAME="LOC"' >> "$BASH_ENV"
-      - run:
-          name: "Say hello"
-          command: echo ${MY_NAME}
+      - run: mkdir -p workspace
+      - run: echo 'Hello' > workspace/output.txt
+      - persist_to_workspace:
+        root: workspace
+        paths: 
+          - output.txt
   say-bye:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run:
-          name: "Say goodbye"
-          command: "echo Goodbye!"
+      - attach_workspace:
+        at: workspace
+      - run: cat output.txt
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
