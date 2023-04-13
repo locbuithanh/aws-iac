@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - run: return 1
+      - run: exit 1
       - run:
           command: echo 'Sending failed notifications'
           when: on_fail
