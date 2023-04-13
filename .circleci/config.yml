@@ -11,7 +11,8 @@ jobs:
   print-id:
     docker:
       - image: cimg/base:stable
-    <<: *print_pipeline_id
+    steps:
+      - print_pipeline_id
 
 workflows:  
   print-id-workflow:
