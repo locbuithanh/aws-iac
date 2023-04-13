@@ -2,22 +2,39 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-commands:
-  print_pipeline_id:
-    steps:
-      - run: echo $CIRCLE_WORKFLOW_ID
-
 jobs:
-  print-id:
+  handle-fails:
     docker:
       - image: cimg/base:stable
     steps:
-      - print_pipeline_id
+      - run: return 1
+      - run:
+          command: echo 'Sending failed notifications'
+          when: on_fail
 
-workflows:  
-  print-id-workflow:
+workflows:
+  handle-fails-flow:
     jobs:
-      - print-id
+      - handle-fails
+
+
+# Using commands
+# commands:
+#   print_pipeline_id:
+#     steps:
+#       - run: echo $CIRCLE_WORKFLOW_ID
+
+# jobs:
+#   print-id:
+#     docker:
+#       - image: cimg/base:stable
+#     steps:
+#       - print_pipeline_id
+
+# workflows:  
+#   print-id-workflow:
+#     jobs:
+#       - print-id
 
 
 
