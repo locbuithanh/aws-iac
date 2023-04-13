@@ -20,7 +20,7 @@ jobs:
             - output.txt
   say-bye:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/node:13.8.0
     steps:
       - attach_workspace:
           at: ~/
